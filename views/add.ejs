@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/add.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <form action="" method="post">
+            <input required class="title-input" type="text" name="title" placeholder="Enter snippet title... ">
+            <div class="code-container">
+                <textarea required style="display: none;" hidden name="code" id=""></textarea>
+                <pre><code class="language-plaintext" spellcheck="false" contenteditable="true">Enter or paste code here...</code></pre>
+                <!-- <textarea placeholder="Enter or paste code snippet... " name="code" id=""></textarea> -->
+            </div>
+            <div class="submit-div">
+                <button type="submit">
+                    Add Snippet
+                </button>
+                <div class="option-div">
+                    <p>Language</p>
+                    <select name="language" id="languages">
+                        <option selected value="AutoDetect">AutoDetect</option>
+                        <option value="actionscript">ActionScript</option>
+                        <option value="csharp">C#</option>
+                        <option value="clojure">Clojure</option>
+                        <option value="coffeescript">CoffeeScript</option>
+                        <option value="crystal">Crystal</option>
+                        <option value="dart">Dart</option>
+                        <option value="d">D</option>
+                        <option value="elixir">Elixir</option>
+                        <option value="elm">Elm</option>
+                        <option value="fsharp">F#</option>
+                        <option value="go">Go</option>
+                        <option value="groovy">Groovy</option>
+                        <option value="haxe">Haxe</option>
+                        <option value="haskell">Haskell</option>
+                        <option value="java">Java</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="julia">Julia</option>
+                        <option value="kotlin">Kotlin</option>
+                        <option value="lua">Lua</option>
+                        <option value="nim">Nim</option>
+                        <option value="ocaml">OCaml</option>
+                        <option value="php">PHP</option>
+                        <option value="powershell">PowerShell</option>
+                        <option value="python">Python</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="rust">Rust</option>
+                        <option value="scala">Scala</option>
+                        <option value="swift">Swift</option>
+                        <option value="typescript">TypeScript</option>
+                        <option value="vbnet">VB.NET</option>
+                        <option value="reasonml">ReasonML</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <a href="/snippets" class="my-snippets-btn">
+            My Snippets
+        </a>
+    </div>
+    <script>
+        hljs.highlightAll();
+        
+        const codeDiv = document.querySelector("code");
+        const textArea = document.querySelector("textarea");
+
+        codeDiv.addEventListener("focusin",(e) => {
+            if (e.currentTarget.textContent == "Enter or paste code here...") {
+                e.currentTarget.textContent = "";
+            }
+        });
+
+        codeDiv.addEventListener("focusout",(e) => {
+            if (e.currentTarget.textContent == "") {
+                e.currentTarget.textContent = "Enter or paste code here...";
+            }
+        });
+
+        codeDiv.addEventListener("input",(e) => {
+            textArea.value = e.currentTarget.textContent;    
+        })
+    </script>
+</body>
+
+</html>

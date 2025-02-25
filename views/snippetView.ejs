@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/snippetView.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="title">
+                <%= snippet.title %>
+            </div>
+            <% if(snippet.language !=undefined) {%>
+                <div class="language">
+                    <%= snippet.language %>
+                </div>
+                <% }%>
+                    <button class="copy-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-clipboard">
+                            <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                        </svg>
+                    </button>
+        </div>
+        <div class="code-wrapper">
+            <pre><code><%= snippet.code %></code></pre>
+        </div>
+        <a href="/snippets" class="my-snippets-btn">
+            My Snippets
+        </a>
+    </div>
+    <script>hljs.highlightAll();</script>
+    <script>
+        const btn = document.querySelector(".copy-btn");
+
+        btn.addEventListener('click', async (e) => {
+            const b = e.currentTarget;
+            btn.children[0].style.stroke = "green";
+
+            const code = document.querySelector("code");
+            await navigator.clipboard.writeText(code.textContent);
+            setTimeout(() => {
+                btn.children[0].style.stroke = "wheat";
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

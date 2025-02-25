@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/home.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+  <img src="/grid_img.svg" alt="grid img">
+  <div class="main">
+    <div class="top">
+      <p class="header">All Snippets At One Place</p>
+      <form action="/login" method="post">
+        <input class="username-input" placeholder="Enter A Unique Username... " required type="text" name="userName" id="userName">
+
+        <button type="submit">
+          <span>
+            Continue
+          </span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="#000"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-play">
+            <polygon points="6 3 20 12 6 21 6 3" />
+          </svg>
+        </button>
+        <div class="msg-container">
+          <% if (err) { %>
+            <p class="msg">Enter username to continue...</p>
+          <% } %>
+        </div>
+      </form>
+    </div>
+    <div class="bottom">
+      <div class="code-card first">
+        <pre><code class="language-javascript">
+const obj = { 
+  firstName:"Jhon"
+  lastName:"Doe"
+}
+
+const arrowFn = () => {
+  ...
+}
+
+function helloWorld() {
+  console.log('Hello, world!');
+}</code></pre>
+      </div>
+      <div class="code-card second">
+        <pre><code class="language-java">
+public class HelloWorld {
+  ...
+  println("hello world");
+  int num = 10000;
+  
+  Foo f = new Foo();
+  
+  this.someMethod();
+  ...
+}
+</code></pre>
+      </div>
+      <div class="code-card third">
+        <pre><code class="language-c">
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#define MAX_LEN 100
+
+int foo(){
+  printf("foo");
+}
+
+void main(){
+  int num = -1;
+  int arr[] = {1,2};
+
+  scanf("%d", &num);
+  printf("hello world!");
+
+  ...
+}</code></pre>
+      </div>
+      <div class="code-card fourth">
+        <pre><code class="language-python">
+import numpy
+import matplotlib.pyplot as plt
+
+lst = []
+
+def foo_func():
+  pass
+
+print("hello world")
+</code></pre>
+
+      </div>
+      <div class="code-card fifth">
+        <pre><code class="language-css">
+body{
+  background: white;
+  display: flex;
+  color: white;
+}
+
+div{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+li{
+  text-decoration: none;
+}
+</code></pre>
+      </div>
+      <div class="code-card sixth">
+        <pre><code class="language-ruby">
+puts "Hello"
+
+num = 10
+      
+def add(a, b)
+  a + b
+end
+
+</code></pre>
+      </div>
+    </div>
+  </div>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>

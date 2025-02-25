@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Raleway", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: rgb(0, 0, 0);
+    color: rgb(245, 222, 179);
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    padding: 60px 20px 20px 20px;
+    /* border: 1px solid white; */
+}
+
+.snippet-grid{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    place-content: start;
+}
+
+.grid-item{
+    /* border: 1px solid white; */
+    /* width: 350px; */
+    height: 350px;
+    background-color: rgb(20, 20, 20);
+    border-radius: 20px;
+    /* padding: 10px; */
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+.snippet-title{
+    /* font-size:; */
+    letter-spacing: 1px;
+    font-weight:600;
+    padding:10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.code-btns{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 10px;
+}
+
+.code-btns > a,button{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: inherit;
+    color: wheat;
+    text-decoration: none;
+    display: block;
+}
+
+.empty-snippet-div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 2rem;
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.add-btn{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: inherit;
+    color: black;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: wheat;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.logout{
+    width: 40px;
+    height: 40px;
+    background-color: wheat;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: small;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.logout-btn{
+    display: none;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    color: wheat;
+    background-color: rgb(48, 48, 48);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+
+}
+pre {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    /* border: 1px solid wheat; */
+    overflow: auto;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    max-width: 100%;
+}
+
+pre code {
+    width: 100%;
+    height: 100%;
+    /* display: block; */
+    overflow: auto;
+    white-space: pre;
+    padding: 0;
+    font-size: 0.8rem;
+  }
