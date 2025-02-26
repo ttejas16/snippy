@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: "Raleway", serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -14,7 +14,7 @@ body{
     color: rgb(245, 222, 179);
 }
 
-.main{
+.main {
     width: 100vw;
     height: 100vh;
     padding: 60px 20px 20px 20px;
@@ -24,7 +24,7 @@ body{
     overflow-y: scroll;
 }
 
-form{
+form {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -35,18 +35,18 @@ form{
 
 }
 
-.title-input{
+.title-input {
     width: 100%;
     background: inherit;
     padding: 10px 15px;
-    color: wheat;
+    color: #f5deb3;
     outline: none;
     border: 1px solid rgb(43, 43, 43);
     font-size: 1rem;
     border-radius: 8px;
 }
 
-button{
+button {
     background: wheat;
     padding: 10px 40px;
     color: black;
@@ -59,14 +59,14 @@ button{
     cursor: pointer;
 }
 
-.code-container{
+.code-container {
     width: 100%;
     /* height: 500px; */
     min-height: 500px;
     /* padding: 10px; */
 }
 
-textarea{
+textarea {
     display: block;
     resize: vertical;
     width: 100%;
@@ -82,7 +82,7 @@ textarea{
     color: wheat;
 }
 
-.my-snippets-btn{
+.my-snippets-btn {
     cursor: pointer;
     outline: none;
     border: none;
@@ -99,34 +99,38 @@ textarea{
     text-decoration: none;
 }
 
-.submit-div{
+.submit-div {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     width: 100%;
 }
-.submit-div > *{
+
+.submit-div>* {
     width: 50%;
 }
-.option-div{
+
+.option-div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.option-div > p{
+
+.option-div>p {
     text-align: end;
     padding: 0 20px;
 }
-.option-div > *{
+
+.option-div>* {
     width: 50%;
 }
 
-select{
+select {
     background: wheat;
     padding: 10px 10px 10px 20px;
     border: none;
-    border-right:20px solid transparent ;
+    border-right: 20px solid transparent;
     font-size: 1rem;
     outline: none;
     border-radius: 8px;
@@ -153,4 +157,46 @@ pre code {
     padding: 40px;
     font-size: 0.9rem;
 
-  }
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(87, 87, 87);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #828282;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track:horizontal {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 20px;
+    background: rgb(87, 87, 87);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover:horizontal {
+    background: #828282;
+}

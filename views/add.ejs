@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Snippet</title>
+    <link rel="icon" type="image/x-icon" href="/braces.svg">
     <link rel="stylesheet" href="/add.css">
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/srcery.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
@@ -28,37 +29,6 @@
                     <p>Language</p>
                     <select name="language" id="languages">
                         <option selected value="AutoDetect">AutoDetect</option>
-                        <option value="actionscript">ActionScript</option>
-                        <option value="csharp">C#</option>
-                        <option value="clojure">Clojure</option>
-                        <option value="coffeescript">CoffeeScript</option>
-                        <option value="crystal">Crystal</option>
-                        <option value="dart">Dart</option>
-                        <option value="d">D</option>
-                        <option value="elixir">Elixir</option>
-                        <option value="elm">Elm</option>
-                        <option value="fsharp">F#</option>
-                        <option value="go">Go</option>
-                        <option value="groovy">Groovy</option>
-                        <option value="haxe">Haxe</option>
-                        <option value="haskell">Haskell</option>
-                        <option value="java">Java</option>
-                        <option value="javascript">JavaScript</option>
-                        <option value="julia">Julia</option>
-                        <option value="kotlin">Kotlin</option>
-                        <option value="lua">Lua</option>
-                        <option value="nim">Nim</option>
-                        <option value="ocaml">OCaml</option>
-                        <option value="php">PHP</option>
-                        <option value="powershell">PowerShell</option>
-                        <option value="python">Python</option>
-                        <option value="ruby">Ruby</option>
-                        <option value="rust">Rust</option>
-                        <option value="scala">Scala</option>
-                        <option value="swift">Swift</option>
-                        <option value="typescript">TypeScript</option>
-                        <option value="vbnet">VB.NET</option>
-                        <option value="reasonml">ReasonML</option>
                     </select>
                 </div>
             </div>
@@ -67,18 +37,40 @@
             My Snippets
         </a>
     </div>
+
+    <script>
+    </script>
     <script>
         hljs.highlightAll();
+        // console.log(hljs);
+        
+        const select = document.querySelector("select");
+        // console.log(hjls.listLanguages());
+        
+        hljs.listLanguages().forEach((lang) => {
+            const option = document.createElement("option");
+            option.value = lang;
+            option.textContent = lang;
+            select.appendChild(option)
+        })
         
         const codeDiv = document.querySelector("code");
         const textArea = document.querySelector("textarea");
 
+        codeDiv.addEventListener("paste",(e) => {
+            e.preventDefault();
+        
+            let plainText = e.clipboardData.getData("text/plain");
+            codeDiv.textContent = plainText;
+            textArea.value = plainText;
+        })
+        
         codeDiv.addEventListener("focusin",(e) => {
             if (e.currentTarget.textContent == "Enter or paste code here...") {
                 e.currentTarget.textContent = "";
             }
         });
-
+        
         codeDiv.addEventListener("focusout",(e) => {
             if (e.currentTarget.textContent == "") {
                 e.currentTarget.textContent = "Enter or paste code here...";

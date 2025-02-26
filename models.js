@@ -22,6 +22,9 @@ const snippetSchema = new mongoose.Schema({
     },
     snippetId:{
         type: String
+    },
+    createdAt:{
+        type: Date
     }
 })
 

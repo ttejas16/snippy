@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: "Raleway", serif;
     font-optical-sizing: auto;
     font-style: normal;
@@ -15,14 +15,14 @@ body{
     color: rgb(245, 222, 179);
 }
 
-.main{
+.main {
     width: 100vw;
     height: 100vh;
     padding: 60px 20px 20px 20px;
     /* border: 1px solid white; */
 }
 
-.snippet-grid{
+.snippet-grid {
     width: 100%;
     height: 100%;
     overflow-y: auto;
@@ -32,7 +32,7 @@ body{
     place-content: start;
 }
 
-.grid-item{
+.grid-item {
     /* border: 1px solid white; */
     /* width: 350px; */
     height: 350px;
@@ -44,24 +44,27 @@ body{
     justify-content: center;
     flex-direction: column;
 }
-.snippet-title{
+
+.snippet-title {
     /* font-size:; */
     letter-spacing: 1px;
-    font-weight:600;
-    padding:10px 20px;
+    font-weight: 600;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
-.code-btns{
+
+.code-btns {
     display: flex;
     justify-content: center;
     align-items: end;
     gap: 10px;
 }
 
-.code-btns > a,button{
+.code-btns>a,
+button {
     cursor: pointer;
     outline: none;
     border: none;
@@ -71,7 +74,7 @@ body{
     display: block;
 }
 
-.empty-snippet-div{
+.empty-snippet-div {
     position: absolute;
     top: 0;
     left: 0;
@@ -88,7 +91,7 @@ body{
     opacity: 0.7;
 }
 
-.add-btn{
+.add-btn {
     cursor: pointer;
     outline: none;
     border: none;
@@ -105,7 +108,7 @@ body{
     text-decoration: none;
 }
 
-.logout{
+.logout {
     width: 40px;
     height: 40px;
     background-color: wheat;
@@ -122,7 +125,7 @@ body{
     user-select: none;
 }
 
-.logout-btn{
+.logout-btn {
     display: none;
     text-decoration: none;
     position: absolute;
@@ -135,6 +138,7 @@ body{
     font-weight: 500;
 
 }
+
 pre {
     width: 100%;
     height: 100%;
@@ -156,4 +160,47 @@ pre code {
     white-space: pre;
     padding: 0;
     font-size: 0.8rem;
-  }
+}
+
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(87, 87, 87);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #828282;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track:horizontal {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 20px;
+    background: rgb(87, 87, 87);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover:horizontal {
+    background: #828282;
+}

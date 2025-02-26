@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: "Raleway", serif;
     font-optical-sizing: auto;
     font-style: normal;
     background-color: rgb(0, 0, 0);
     color: rgb(245, 222, 179);
+    overflow-x: hidden;
 }
 
-.main{
+.main {
     width: 100vw;
     height: 100vh;
     padding: 60px 20px 20px 20px;
@@ -25,7 +26,7 @@ body{
     gap: 20px;
 }
 
-.header{
+.header {
     /* border: 1px solid white; */
     display: flex;
     justify-content: start;
@@ -33,7 +34,7 @@ body{
     gap: 10px;
 }
 
-.header > button{
+.header>button {
     cursor: pointer;
     outline: none;
     border: none;
@@ -42,15 +43,17 @@ body{
     margin-left: 20px;
 }
 
-.title{
+.title {
     font-size: 1.6rem;
     border-radius: 2px;
     padding: 5px 20px;
 }
-.language{
+
+.language {
     color: rgb(148, 148, 148);
 }
-.code-wrapper{
+
+.code-wrapper {
     /* border: 1px solid white; */
     width: 50%;
     /* height: 100%; */
@@ -59,7 +62,7 @@ body{
 
 
 
-.my-snippets-btn{
+.my-snippets-btn {
     cursor: pointer;
     outline: none;
     border: none;
@@ -95,4 +98,47 @@ pre code {
     white-space: pre;
     padding: 0;
     font-size: 1rem;
-  }
+}
+
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(87, 87, 87);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #828282;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track:horizontal {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 20px;
+    background: rgb(87, 87, 87);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover:horizontal {
+    background: #828282;
+}

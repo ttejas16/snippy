@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snippets</title>
+    <link rel="icon" type="image/x-icon" href="/braces.svg">
     <link rel="stylesheet" href="/snippetView.css">
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/srcery.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
 
@@ -32,7 +33,11 @@
                     </button>
         </div>
         <div class="code-wrapper">
-            <pre><code><%= snippet.code %></code></pre>
+            <% if(snippet.language !=undefined){ %>
+                <pre><code class="language-<%=snippet.language%>"><%= snippet.code %></code></pre>
+            <% } else { %>
+                <pre><code class="hljs"><%= snippet.code %></code></pre>
+            <% } %>
         </div>
         <a href="/snippets" class="my-snippets-btn">
             My Snippets

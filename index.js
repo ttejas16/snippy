@@ -1,14 +1,17 @@
 require('dotenv').config();
 const path = require("path");
 const port = 3000;
-const { v4:uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const logger = require('morgan');;
+
 const { connectDatabase } = require('./database');
 const { User, Snippet } = require('./models');
 const { authRequired } = require('./middlewares');
 const app = express();
 
+app.use(logger("dev"));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.urlencoded({
@@ -39,8 +42,8 @@ app.post("/login", async (req, res) => {
     res.redirect("/snippets");
 })
 
-app.get("/logout", (req,res) => {
-    res.cookie("userName","",{ expires: new Date(Date.now()) });
+app.get("/logout", (req, res) => {
+    res.cookie("userName", "", { expires: new Date(Date.now()) });
     res.redirect("/");
 });
 
@@ -48,8 +51,8 @@ app.get("/logout", (req,res) => {
 app.get("/snippets", authRequired, async (req, res) => {
     const userName = req.cookies.userName;
 
-    const snippets = await Snippet.find({ userName: userName })
-    console.log(snippets);
+    const snippets = await Snippet.find({ userName: userName }).sort({ createdAt: -1 })
+    // console.log(snippets);
 
     res.render("snippets", { snippets: snippets, userName: userName });
 })
@@ -63,32 +66,43 @@ app.post("/snippets/add", authRequired, async (req, res) => {
     const title = req.body.title;
     const code = req.body.code;
     const language = req.body.language;
-    console.log(req.body);
-    
+    // console.log(req.body);
+
     const snippet = new Snippet({
         userName,
         code,
         title,
         language: language == "AutoDetect" ? undefined : language.trim(),
-        snippetId: uuidv4()
+        snippetId: uuidv4(),
+        createdAt: new Date()
     })
     await snippet.save();
-    
+
     res.redirect("/snippets/add");
 })
 
-app.get("/snippets/:id", authRequired, async (req,res) => {
+app.get("/snippets/:id", authRequired, async (req, res) => {
     const id = req.params.id;
 
-    const snippet = await Snippet.findOne({ snippetId:id });
+    const snippet = await Snippet.findOne({ snippetId: id });
     if (!snippet) {
-        res.redirect("/snippets");
+        res.redirect("/404");
         return;
     }
 
-    console.log(snippet);
-    
-    res.render("snippetView", { snippet:snippet });
+    // console.log(snippet);
+
+    res.render("snippetView", { snippet: snippet });
+})
+
+app.get("/snippets/delete/:id", authRequired, async (req, res) => {
+    const id = req.params.id;
+    const _ = await Snippet.deleteOne({ snippetId: id });
+    res.redirect("/snippets");
+})
+
+app.get("*", (req, res) => {
+    res.status(404).render("error");
 })
 
 app.listen(port, () => {
