@@ -17,9 +17,7 @@
         <form action="" method="post">
             <input required class="title-input" type="text" name="title" placeholder="Enter snippet title... ">
             <div class="code-container">
-                <textarea required style="display: none;" hidden name="code" id=""></textarea>
-                <pre><code class="language-plaintext" spellcheck="false" contenteditable="true">Enter or paste code here...</code></pre>
-                <!-- <textarea placeholder="Enter or paste code snippet... " name="code" id=""></textarea> -->
+                <textarea spellcheck="false" required name="code" id="" placeholder="Enter or paste code here... "></textarea>
             </div>
             <div class="submit-div">
                 <button type="submit">
@@ -52,33 +50,6 @@
             option.value = lang;
             option.textContent = lang;
             select.appendChild(option)
-        })
-        
-        const codeDiv = document.querySelector("code");
-        const textArea = document.querySelector("textarea");
-
-        codeDiv.addEventListener("paste",(e) => {
-            e.preventDefault();
-        
-            let plainText = e.clipboardData.getData("text/plain");
-            codeDiv.textContent = plainText;
-            textArea.value = plainText;
-        })
-        
-        codeDiv.addEventListener("focusin",(e) => {
-            if (e.currentTarget.textContent == "Enter or paste code here...") {
-                e.currentTarget.textContent = "";
-            }
-        });
-        
-        codeDiv.addEventListener("focusout",(e) => {
-            if (e.currentTarget.textContent == "") {
-                e.currentTarget.textContent = "Enter or paste code here...";
-            }
-        });
-
-        codeDiv.addEventListener("input",(e) => {
-            textArea.value = e.currentTarget.textContent;    
         })
     </script>
 </body>
