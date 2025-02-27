@@ -19,6 +19,13 @@
                 <%= snippet.title %>
             </div>
             <% if(snippet.language !=undefined) {%>
+                <img 
+                    onerror="this.src ='/braces.svg'"
+                    src="https://raw.githubusercontent.com/devicons/devicon/master/icons/<%=snippet.language%>/<%=snippet.language%>-original.svg" 
+                    alt="" 
+                    width="20" 
+                    height="20"
+                    >
                 <div class="language">
                     <%= snippet.language %>
                 </div>

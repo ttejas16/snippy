@@ -8,7 +8,7 @@ const logger = require('morgan');;
 
 const { connectDatabase } = require('./database');
 const { User, Snippet } = require('./models');
-const { authRequired } = require('./middlewares');
+const { authRequired, foo } = require('./middlewares');
 const app = express();
 
 app.use(logger("dev"));
@@ -50,9 +50,13 @@ app.get("/logout", (req, res) => {
 
 app.get("/snippets", authRequired, async (req, res) => {
     const userName = req.cookies.userName;
-
-    const snippets = await Snippet.find({ userName: userName }).sort({ createdAt: -1 })
+    // console.log(req.query.filter);
+    
+    let snippets = await Snippet.find({ userName: userName }).sort({ createdAt: -1 })
     // console.log(snippets);
+    if (req.query.filter && req.query.filter != "none") {
+        snippets = snippets.filter(s => s.language == req.query.filter);
+    }
 
     res.render("snippets", { snippets: snippets, userName: userName });
 })

@@ -18,8 +18,36 @@ body {
 .main {
     width: 100vw;
     height: 100vh;
-    padding: 60px 20px 20px 20px;
+    padding: 80px 20px 20px 20px;
     /* border: 1px solid white; */
+}
+
+.filter-div{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.filter-div > span{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+option{
+    font-size: 1.05rem;
+}
+
+select {
+    background: wheat;
+    padding: 10px 10px 10px 20px;
+    border: none;
+    border-right: 20px solid transparent;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .snippet-grid {
@@ -30,6 +58,7 @@ body {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
     place-content: start;
+    padding-bottom: 60px;
 }
 
 .grid-item {
@@ -43,6 +72,19 @@ body {
     align-items: start;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+}
+
+.lang-icon{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* background: #000; */
+    /* padding: 5px; */
+    margin: 10px;
+    /* border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0; */
 }
 
 .snippet-title {
@@ -118,11 +160,13 @@ button {
     align-items: center;
     color: black;
     font-size: small;
+    font-weight: 600;
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
     user-select: none;
+    
 }
 
 .logout-btn {
@@ -136,7 +180,8 @@ button {
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: 500;
-
+    z-index: 50;
+    border: 1px solid rgb(71, 71, 71);
 }
 
 pre {
