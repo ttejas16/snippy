@@ -144,9 +144,10 @@
             }
 
             select.appendChild(option);
-            option.addEventListener("click", (e) => {
-                window.location.href = `/snippets?filter=${lang}`;
-            })
+        })
+        
+        select.addEventListener("change",(e) => {
+            window.location.href = `/snippets?filter=${e.currentTarget.value}`;
         })        
     </script>
 </body>
